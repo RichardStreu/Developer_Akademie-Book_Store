@@ -10,19 +10,6 @@ function setDataToLocalStorage() {
   localStorage.setItem("books", JSON.stringify(books));
 }
 
-// initial rendering
-
-function initialRendering() {
-  getDataFromLocalStorage();
-
-  let bookWrapperRef = document.getElementById("bookWrapper");
-
-  for (let index = 0; index < books.length; index++) {
-    bookWrapperRef.innerHTML += renderBookContainerTemplate(index);
-    bookWrapperRef.innerHTML += getDividerTemplate();
-  }
-}
-
 // render templates
 
 function renderBookContainerTemplate(index) {
@@ -48,5 +35,45 @@ function renderDividerTemplate() {
   getDividerTemplate();
 }
 
+// save comment and assign to comments
+
+function addComment(index) {
+  let name = document.getElementById(`${"inputName" + index}`).value;
+  let comment = document.getElementById(`${"inputComment" + index}`).value
+  if (name == "") {
+    window.alert("Bitte gib deinen Namen an.");
+    return;
+  }
+  if (comment == "") {
+    window.alert("Bitte schreibe einen Kommentar.");
+    return;
+  }
+  let newComment = {
+    name: name,
+    comment: comment,
+  };
+
+  books[index].comments.unshift(newComment);
+
+  setDataToLocalStorage();
+  
+  initialRendering();
+}
+
+
+
+
+// ########## init Rendering ############
+
+function initialRendering() {
+  getDataFromLocalStorage();
+
+  let bookWrapperRef = document.getElementById("bookWrapper");
+
+  for (let index = 0; index < books.length; index++) {
+    bookWrapperRef.innerHTML += renderBookContainerTemplate(index);
+    bookWrapperRef.innerHTML += getDividerTemplate();
+  }
+}
 
 initialRendering();

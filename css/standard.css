@@ -8,11 +8,20 @@
 }
 
 .wrapper {
-  width: 1440px;
+  max-width: 1440px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
 
 main .wrapper {
   width: 900px;
+}
+
+.d-none {
+  display: none;
+}
+
+.opacity-zero {
+  opacity: 0;
 }

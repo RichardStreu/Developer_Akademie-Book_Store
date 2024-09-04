@@ -4,15 +4,15 @@ function getBookContainerTemplate(index, commentContent) {
             
             </div>
 
-            <div class="commentContainer">
+            <div id="${"commentContainer" + index}" class="commentContainer">
               
               <div class="commentBoxUpperPart">
                 <p><b>Bewerte jetzt dieses Buch</b></p>
                 <div class="commentInputArea">
-                  <input class="input-name" type="text" placeholder="Dein Name"></inpu>
-                  <input class="input-comment" type="text" placeholder="Deine Bewertung"></inpu>
+                  <input id="${"inputName" + index}" class="input-name" type="text" placeholder="Dein Name"></inpu>
+                  <input id="${"inputComment" + index}" class="input-comment" type="text" placeholder="Deine Bewertung"></inpu>
                 </div>
-                <button id="commentSendButton" class="comment-send-button">Bewertung abgeben</button>
+                <button onclick="addComment(${index})" id="${"commentSendButton" + index}" class="comment-send-button">Bewertung abgeben</button>
               </div>
 
               <div class="commentBoxLowerPart">
