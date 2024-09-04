@@ -3,16 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="./css/standard.css" />
+    <link rel="stylesheet" href="./css/templates.css" />
+    <link rel="stylesheet" href="style.css" />
     <script src="./scripts/arrays.js"></script>
     <script src="./scripts/templates.js"></script>
     <title>Book Store</title>
   </head>
-  <body>
+  <body onload="">
+    <!-- header -->
     <header>
-      <h1>Book Store</h1>
+      <div class="wrapper">
+        <h1>Book Store</h1>
+      </div>
     </header>
+
+    <!-- main -->
+    <main>
+      <!-- book-section -->
+      <section class="book-section">
+        <div class="wrapper">
+          <div class="book-container">
+            <div class="bookBox"></div>
+            <div class="commentBox"></div>
+          </div>
+
+          <div class="divider"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- footer -->
+    <footer>
+      <div class="wrapper"></div>
+    </footer>
   </body>
   <script src="script.js"></script>
 </html>

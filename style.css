@@ -1,0 +1,20 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  height: 78px;
+  background-color: blue;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  height: 64px;
+  background-color: blue;
+}
+
