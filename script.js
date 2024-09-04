@@ -12,21 +12,38 @@ function setDataToLocalStorage() {
 
 // render templates
 
-function renderBookContainerTemplate() {
+function renderBookContainerTemplate(index) {
+  let bookBox;
+  return getBookContainerTemplate(index);
+}
 
+function renderBookComments(currentBookIndex) {
+  let bookCommentBox = "";
+  for (let commentIndex = 0; commentIndex < books[currentBookIndex].comments.   length; commentIndex++) {
+    let commentAutor = books[currentBookIndex].comments[commentIndex].name;
+    bookCommentBox += getBookCommentsTemplate(commentAutor); 
+  }
+  return bookCommentBox;
 }
 
 function renderDividerTemplate() {
-
+  getDividerTemplate();
 }
 
-function renderBookComments() {
-  
-}
-
-// initial 
+// initial
 
 function initialRendering() {
+
   getDataFromLocalStorage();
 
+  let bookWrapperRef = document.getElementById("bookWrapper");
+  for (let index = 0; index < books.length; index++) {
+    
+    bookWrapperRef.innerHTML += renderBookContainerTemplate(index);
+    bookWrapperRef.innerHTML += renderBookComments(index);
+    bookWrapperRef.innerHTML += getDividerTemplate();
+
+  }
 }
+
+initialRendering();

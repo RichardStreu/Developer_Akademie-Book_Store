@@ -1,10 +1,10 @@
 
 function getBookContainerTemplate() {
-  return ``;
+  return `<div class="book-container"></div>`;
 }
 
-function getBookCommentsTemplate() {
-  return ``;
+function getBookCommentsTemplate(autor) {
+  return `<div class="commentBox"><p>${autor}</p></div>`;
 }
 
 function getDividerTemplate() {
