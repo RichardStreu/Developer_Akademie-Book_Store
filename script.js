@@ -32,7 +32,9 @@ function renderBookComments(currentBookIndex) {
 }
 
 function renderBookCommentsAfterNewComment(currentBookIndex) {
-  let commentBoxLowerPartRef = document.getElementById(`${"commentBoxLowerPart" + currentBookIndex}`);
+  let commentBoxLowerPartRef = document.getElementById(
+    `${"commentBoxLowerPart" + currentBookIndex}`
+  );
   commentBoxLowerPartRef.innerHTML = "";
   for (
     let commentIndex = 0;
@@ -41,7 +43,10 @@ function renderBookCommentsAfterNewComment(currentBookIndex) {
   ) {
     let commentAutor = books[currentBookIndex].comments[commentIndex].name;
     let comment = books[currentBookIndex].comments[commentIndex].comment;
-    commentBoxLowerPartRef.innerHTML += getBookCommentsTemplate(commentAutor, comment);
+    commentBoxLowerPartRef.innerHTML += getBookCommentsTemplate(
+      commentAutor,
+      comment
+    );
   }
 }
 
@@ -52,13 +57,19 @@ function renderDividerTemplate() {
 // show comment section
 
 function showComments(index) {
-  let currentCommentContainerRef = document.getElementById(`${"commentContainer" + index}`);
+  let currentCommentContainerRef = document.getElementById(
+    `${"commentContainer" + index}`
+  );
   currentCommentContainerRef.classList.toggle("d-none");
 
-  let currentCommentArrow = document.getElementById(`${"commentArrow" + index}`);
+  let currentCommentArrow = document.getElementById(
+    `${"commentArrow" + index}`
+  );
   currentCommentArrow.classList.toggle("commentArrowRotate");
 
-  let showCommentButtonRef = document.getElementById(`${"showCommentButton" + index}`);
+  let showCommentButtonRef = document.getElementById(
+    `${"showCommentButton" + index}`
+  );
   showCommentButtonRef.classList.toggle("commentBackColorGray");
 }
 
@@ -66,7 +77,7 @@ function showComments(index) {
 
 function addComment(index) {
   let name = document.getElementById(`${"inputName" + index}`).value;
-  let comment = document.getElementById(`${"inputComment" + index}`).value
+  let comment = document.getElementById(`${"inputComment" + index}`).value;
   if (name == "") {
     window.alert("Bitte gib deinen Namen an.");
     return;
@@ -93,28 +104,28 @@ function initLikeHeart(index) {
 
   if (books[index].liked == true) {
     currentLikeHeartRef.src = "./assets/icons/heart-filled.png";
-  }
-  else {
+  } else {
     currentLikeHeartRef.src = "./assets/icons/heart-unfilled.png";
   }
 }
 
 function likeThisBook(index) {
   let currentLikeHeartRef = document.getElementById(`${"likeHeart" + index}`);
-  let currentBookLikesRef = document.getElementById(`${"bookLikesBook" + index}`);
+  let currentBookLikesRef = document.getElementById(
+    `${"bookLikesBook" + index}`
+  );
   let currentLikeAmount = books[index].likes;
 
   if (books[index].liked == false) {
     currentLikeHeartRef.src = "./assets/icons/heart-filled.png";
     books[index].liked = true;
     currentBookLikesRef.innerHTML = currentLikeAmount + 1;
-    books[index].likes ++;
-  }
-  else {
+    books[index].likes++;
+  } else {
     currentLikeHeartRef.src = "./assets/icons/heart-unfilled.png";
     books[index].liked = false;
     currentBookLikesRef.innerHTML = currentLikeAmount - 1;
-    books[index].likes --;
+    books[index].likes--;
   }
 
   setDataToLocalStorage();
@@ -135,3 +146,43 @@ function initialRendering() {
 }
 
 initialRendering();
+
+// funktions to filter the books
+
+function getAllGenres(array) {
+  let allGenres = [];
+  for (let index = 0; index < array.length; index++) {
+    if (!allGenres.includes(books[index].genre)) {
+      allGenres.push(books[index].genre);
+    }
+  }
+  return allGenres.sort();
+}
+
+function showFilterMenu() {
+  let dropdownFilterButtonRef = document.getElementById("dropdownFilterButton");
+  let filterMenuDropdownRef = document.getElementById("filterMenuDropdown");
+
+  filterMenuDropdownRef.classList.toggle("d-none");
+  dropdownFilterButtonRef.classList.toggle("commentBackColorGray");
+}
+
+function assignGenresToFilter(allgenres) {
+  let filterMenuDropdownRef = document.getElementById("filterMenuDropdown");
+
+  for (let index = 0; index < allgenres.length; index++) {
+    let genre = allgenres[index];
+    let newListItem = document.createElement("li");
+    newListItem.innerHTML = genre;
+    newListItem.addEventListener("click", function () {
+      filterBooksByGenre(genre);
+    });
+    filterMenuDropdownRef.appendChild(newListItem);
+  }
+}
+
+assignGenresToFilter(getAllGenres(books));
+
+function filterBooksByGenre(genre) {
+  console.log(genre);
+}

@@ -5,12 +5,83 @@ body {
 }
 
 header {
-  height: 78px;
-  background-color: blue;
+  height: 96px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
+  background-color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+}
+.bookStoreName {
+  font-size: 3rem;
+  margin-left: 1rem;
+}
+
+.dropdown-filter-box {
+  position: absolute;
+  right: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.dropdown-filter-button {
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.356);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 1rem;
+  transition: all 0.1s ease-in-out;
+  user-select: none;
+  width: 240px;
+  gap: 2.25rem;
+}
+.dropdown-filter-button:hover {
+  background-color: rgba(128, 128, 128, 0.15);
+}
+
+.dropdown-filter-list {
+  position: absolute;
+  border: 1px solid rgba(0, 0, 0, 0.356);
+  width: 240px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.dropdown-filter-list li {
+  list-style-type: none;
+  text-align: center;
+  padding: 0.25rem 0.5rem;
+  background-color: white;
+  user-select: none;
+  cursor: pointer;
+}
+.dropdown-filter-list li:hover {
+  background-color: rgb(236, 236, 236);
+}
+.dropdown-filter-list li:nth-child(2n) {
+  border-top: 1px solid rgba(0, 0, 0, 0.356);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.356);
 }
 
 main {
   flex: 1;
+  margin-top: 112px;
 }
 
 footer {

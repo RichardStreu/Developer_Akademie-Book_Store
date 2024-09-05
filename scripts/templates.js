@@ -9,7 +9,7 @@ function getBookContainerTemplate(index, commentContent) {
                 <div class="book-content-info">
                   <div class="regText bookAuthorName">${books[index].author}</div>
                   <div class="regText bookTitle"><b>${books[index].name}</b></div>
-                  <div class="regText bookPubYear">Ersch. J: <span>${books[index].publishedYear}</span></div>
+                  <div class="regText bookPubYear">EJ: <span>${books[index].publishedYear}</span></div>
                   <div class="regText bookGenre">Genre: <span>${books[index].genre}</span></div>
                   <div class="bookPrice"><span>${books[index].price.toFixed(2)}</span>€</div>
                 </div>

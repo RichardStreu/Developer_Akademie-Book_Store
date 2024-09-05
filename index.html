@@ -6,78 +6,39 @@
     <link rel="stylesheet" href="./css/templates.css" />
     <link rel="stylesheet" href="./css/standard.css" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="./assets/icons/icons8-book-50.png">
-    <title>Book Store</title>
+    <link rel="icon" href="./assets/icons/icons8-book-50.png" />
+    <title>DAhlia</title>
   </head>
   <body>
     <!-- header -->
     <header>
-      <div class="wrapper">
-        <h1>Book Store</h1>
+      <div class="wrapper header-wrapper">
+        <div class="header-content">
+          <img src="./assets/icons/icons8-book-50.png" alt="">
+          <span class="bookStoreName">DAhlia</span>
+        </div>
+        <div class="dropdown-filter-box">
+          <div onclick="showFilterMenu()" id="dropdownFilterButton" class="dropdown-filter-button">
+            <img src="./assets/icons/icons8-open-menu-24.png" alt=""><span>Filter nach Genre</span>
+          </div>
+          <ul id="filterMenuDropdown" class="dropdown-filter-list d-none">
+            <li>Alle Genres</li>
+          </ul>
+        </div>
       </div>
     </header>
 
-    <!-- main -->
     <main>
-      <!-- book-section -->
       <section class="book-section">
-        <div id="bookWrapper" class="wrapper">
-          
-          <!-- getBookContainerTemplate -->
-          <div class="book-container">
-            <!-- bookBox section -->
-            <div class="bookBox">
-              <div class="heartBox"><img src="./assets/icons/heart-unfilled.png" alt=""></div>
-              <div class="bookImageBox">
-                <img class="bookImage" src="./assets/img/krieg_und_frieden-leo_tolstoi.jpg" alt="">
-              </div>
-              <div class="book-content">
-                <div class="book-content-info">
-                  <div class="regText bookAuthorName">Clara Meer</div>
-                  <div class="regText bookTitle"><b>Die Geheimnisse des Ozeans</b></div>
-                  <div class="regText bookPubYear">Ersch. J: 2018</div>
-                  <div class="regText bookGenre">Genre: Fantasie</div>
-                  <div class="bookPrice">19.99€</div>
-                </div>
-                <div class="book-content-likes">
-                  <div class="regText bookLikes">1250 Lesern gefällt dieses Buch</div>
-                  <div class="bookToComment"><span>Jetzt selbst bewerten</span><img class="commentArrow" id="commentArrow" src="./assets/icons/arrow.png" alt=""></div>
-                </div>
-              </div>
-            </div>
-            <!-- comment section -->
-            <div class="commentContainer">
-              <div class="commentBoxUpperPart">
-                <div class="commentInputArea">
-                  <input id="inputName" class="input-name" type="text" placeholder="Dein Name"></inpu>
-                  <input id="inputComment" class="input-comment" type="text" placeholder="Deine Bewertung"></inpu>
-                </div>
-                <button id="commentSendButton" class="comment-send-button">Bewertung abgeben</button>
-              </div>
-
-              <div class="commentBoxLowerPart">
-              </div>
-
-              <!-- getBookCommentsTemplate -->
-              <!-- <div class="commentContent">
-                <p></p>
-                <p></p>
-              </div> -->
-
-            </div>
-            <div class="divider"></div>
-          </div>
-
-        </div>
+        <div id="bookWrapper" class="wrapper"></div>
       </section>
     </main>
 
-    <!-- footer -->
     <footer>
       <div class="wrapper"></div>
     </footer>
   </body>
   <script src="./scripts/arrays.js"></script>
   <script src="./scripts/templates.js"></script>
-  <script src="script.js"></script> 
+  <script src="script.js"></script>
 </html>

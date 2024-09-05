@@ -25,3 +25,7 @@ main .wrapper {
 .opacity-zero {
   opacity: 0;
 }
+
+.commentBackColorGray {
+  background-color: rgba(128, 128, 128, 0.15);
+}
