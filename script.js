@@ -31,6 +31,20 @@ function renderBookComments(currentBookIndex) {
   return commentBoxLowerPart;
 }
 
+function renderBookCommentsAfterNewComment(currentBookIndex) {
+  let commentBoxLowerPartRef = document.getElementById(`${"commentBoxLowerPart" + currentBookIndex}`);
+  commentBoxLowerPartRef.innerHTML = "";
+  for (
+    let commentIndex = 0;
+    commentIndex < books[currentBookIndex].comments.length;
+    commentIndex++
+  ) {
+    let commentAutor = books[currentBookIndex].comments[commentIndex].name;
+    let comment = books[currentBookIndex].comments[commentIndex].comment;
+    commentBoxLowerPartRef.innerHTML += getBookCommentsTemplate(commentAutor, comment);
+  }
+}
+
 function renderDividerTemplate() {
   getDividerTemplate();
 }
@@ -55,13 +69,9 @@ function addComment(index) {
 
   books[index].comments.unshift(newComment);
 
+  renderBookCommentsAfterNewComment(index);
   setDataToLocalStorage();
-  
-  initialRendering();
 }
-
-
-
 
 // ########## init Rendering ############
 

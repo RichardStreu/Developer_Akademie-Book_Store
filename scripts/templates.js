@@ -15,7 +15,7 @@ function getBookContainerTemplate(index, commentContent) {
                 <button onclick="addComment(${index})" id="${"commentSendButton" + index}" class="comment-send-button">Bewertung abgeben</button>
               </div>
 
-              <div class="commentBoxLowerPart">
+              <div id="${"commentBoxLowerPart" + index}" class="commentBoxLowerPart">
               ${commentContent}
               </div>
 
