@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/standard.css" />
     <link rel="stylesheet" href="./css/templates.css" />
+    <link rel="stylesheet" href="./css/standard.css" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="./assets/icons/icons8-book-50.png">
     <title>Book Store</title>
   </head>
   <body>
@@ -24,9 +25,28 @@
           
           <!-- getBookContainerTemplate -->
           <div class="book-container">
-            <div class="bookBox"></div>
+            <!-- bookBox section -->
+            <div class="bookBox">
+              <div class="heartBox"><img src="./assets/icons/heart-unfilled.png" alt=""></div>
+              <div class="bookImageBox">
+                <img class="bookImage" src="./assets/img/krieg_und_frieden-leo_tolstoi.jpg" alt="">
+              </div>
+              <div class="book-content">
+                <div class="book-content-info">
+                  <div class="regText bookAuthorName">Clara Meer</div>
+                  <div class="regText bookTitle"><b>Die Geheimnisse des Ozeans</b></div>
+                  <div class="regText bookPubYear">Ersch. J: 2018</div>
+                  <div class="regText bookGenre">Genre: Fantasie</div>
+                  <div class="bookPrice">19.99€</div>
+                </div>
+                <div class="book-content-likes">
+                  <div class="regText bookLikes">1250 Lesern gefällt dieses Buch</div>
+                  <div class="bookToComment"><span>Jetzt selbst bewerten</span><img class="commentArrow" id="commentArrow" src="./assets/icons/arrow.png" alt=""></div>
+                </div>
+              </div>
+            </div>
+            <!-- comment section -->
             <div class="commentContainer">
-
               <div class="commentBoxUpperPart">
                 <div class="commentInputArea">
                   <input id="inputName" class="input-name" type="text" placeholder="Dein Name"></inpu>

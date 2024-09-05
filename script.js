@@ -49,6 +49,19 @@ function renderDividerTemplate() {
   getDividerTemplate();
 }
 
+// show comment section
+
+function showComments(index) {
+  let currentCommentContainerRef = document.getElementById(`${"commentContainer" + index}`);
+  currentCommentContainerRef.classList.toggle("d-none");
+
+  let currentCommentArrow = document.getElementById(`${"commentArrow" + index}`);
+  currentCommentArrow.classList.toggle("commentArrowRotate");
+
+  let showCommentButtonRef = document.getElementById(`${"showCommentButton" + index}`);
+  showCommentButtonRef.classList.toggle("commentBackColorGray");
+}
+
 // save comment and assign to comments
 
 function addComment(index) {
@@ -73,6 +86,40 @@ function addComment(index) {
   setDataToLocalStorage();
 }
 
+// functions for likes
+
+function initLikeHeart(index) {
+  let currentLikeHeartRef = document.getElementById(`${"likeHeart" + index}`);
+
+  if (books[index].liked == true) {
+    currentLikeHeartRef.src = "./assets/icons/heart-filled.png";
+  }
+  else {
+    currentLikeHeartRef.src = "./assets/icons/heart-unfilled.png";
+  }
+}
+
+function likeThisBook(index) {
+  let currentLikeHeartRef = document.getElementById(`${"likeHeart" + index}`);
+  let currentBookLikesRef = document.getElementById(`${"bookLikesBook" + index}`);
+  let currentLikeAmount = books[index].likes;
+
+  if (books[index].liked == false) {
+    currentLikeHeartRef.src = "./assets/icons/heart-filled.png";
+    books[index].liked = true;
+    currentBookLikesRef.innerHTML = currentLikeAmount + 1;
+    books[index].likes ++;
+  }
+  else {
+    currentLikeHeartRef.src = "./assets/icons/heart-unfilled.png";
+    books[index].liked = false;
+    currentBookLikesRef.innerHTML = currentLikeAmount - 1;
+    books[index].likes --;
+  }
+
+  setDataToLocalStorage();
+}
+
 // ########## init Rendering ############
 
 function initialRendering() {
@@ -83,6 +130,7 @@ function initialRendering() {
   for (let index = 0; index < books.length; index++) {
     bookWrapperRef.innerHTML += renderBookContainerTemplate(index);
     bookWrapperRef.innerHTML += getDividerTemplate();
+    initLikeHeart(index);
   }
 }
 
