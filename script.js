@@ -50,9 +50,20 @@ function renderBookCommentsAfterNewComment(currentBookIndex) {
   }
 }
 
-function renderDividerTemplate() {
-  getDividerTemplate();
+// ########## init Rendering ############
+
+function initialRendering() {
+  getDataFromLocalStorage();
+
+  let bookWrapperRef = document.getElementById("bookWrapper");
+
+  for (let index = 0; index < books.length; index++) {
+    bookWrapperRef.innerHTML += renderBookContainerTemplate(index);
+    initLikeHeart(index);
+  }
 }
+
+initialRendering();
 
 // show comment section
 
@@ -131,22 +142,6 @@ function likeThisBook(index) {
   setDataToLocalStorage();
 }
 
-// ########## init Rendering ############
-
-function initialRendering() {
-  getDataFromLocalStorage();
-
-  let bookWrapperRef = document.getElementById("bookWrapper");
-
-  for (let index = 0; index < books.length; index++) {
-    bookWrapperRef.innerHTML += renderBookContainerTemplate(index);
-    bookWrapperRef.innerHTML += getDividerTemplate();
-    initLikeHeart(index);
-  }
-}
-
-initialRendering();
-
 // funktions to filter the books
 
 function getAllGenres(array) {
@@ -159,12 +154,32 @@ function getAllGenres(array) {
   return allGenres.sort();
 }
 
-function showFilterMenu() {
-  let dropdownFilterButtonRef = document.getElementById("dropdownFilterButton");
-  let filterMenuDropdownRef = document.getElementById("filterMenuDropdown");
+function giveBodyClickToUnshowFilterMenu() {
+  document.querySelector("body").addEventListener("click", unshowFilterMenu);
+}
 
-  filterMenuDropdownRef.classList.toggle("d-none");
-  dropdownFilterButtonRef.classList.toggle("commentBackColorGray");
+function removeBodyClickToUnshowFilterMenu() {
+  document.querySelector("body").removeEventListener("click", unshowFilterMenu);
+}
+
+function showFilterMenu() {
+  document.getElementById("filterMenuDropdown").classList.remove("d-none");
+  document
+    .getElementById("dropdownFilterButton")
+    .classList.add("commentBackColorGray");
+  setTimeout(() => {
+    giveBodyClickToUnshowFilterMenu();
+  }, 10);
+}
+
+function unshowFilterMenu() {
+  document.getElementById("filterMenuDropdown").classList.add("d-none");
+  document
+    .getElementById("dropdownFilterButton")
+    .classList.remove("commentBackColorGray");
+  setTimeout(() => {
+    removeBodyClickToUnshowFilterMenu();
+  }, 10);
 }
 
 function assignGenresToFilter(allgenres) {
@@ -180,9 +195,25 @@ function assignGenresToFilter(allgenres) {
     filterMenuDropdownRef.appendChild(newListItem);
   }
 }
-
 assignGenresToFilter(getAllGenres(books));
 
+// get nodelist of all books global for better performance
+let bookNodeList = document.querySelectorAll(".book-container");
+
 function filterBooksByGenre(genre) {
-  console.log(genre);
+  bookNodeList.forEach((element) => {
+    if (!element.classList.contains(genre)) {
+      element.classList.add("d-none");
+    } else {
+      element.classList.remove("d-none");
+    }
+  });
+  unshowFilterMenu();
+  document.getElementById("filterButtonText").innerText = genre;
+}
+
+function filterBooksToAllGenre() {
+  bookNodeList.forEach((element) => element.classList.remove("d-none"));
+  unshowFilterMenu();
+  document.getElementById("filterButtonText").innerText = "Filter nach Genre";
 }

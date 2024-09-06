@@ -1,5 +1,5 @@
 function getBookContainerTemplate(index, commentContent) {
-  return `<div class="book-container">
+  return `<div class="book-container ${books[index].genre}">
             <div class="bookBox">
               <div onclick="likeThisBook(${index})" class="heartBox"><img id="${"likeHeart" + index}" src="./assets/icons/heart-unfilled.png" alt=""></div>
               <div class="bookImageBox">
@@ -36,7 +36,7 @@ function getBookContainerTemplate(index, commentContent) {
               </div>
 
             </div>
-
+          <div class="divider"></div>
           </div>`;
 }
 
@@ -45,8 +45,4 @@ function getBookCommentsTemplate(autor, comment) {
             <p><b>${autor}</b></p>
             <p>${comment}</p>
           </div>`;
-}
-
-function getDividerTemplate() {
-  return `<div class="divider"></div>`;
 }

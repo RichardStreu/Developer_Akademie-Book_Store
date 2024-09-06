@@ -14,28 +14,34 @@
     <header>
       <div class="wrapper header-wrapper">
         <div class="header-content">
-          <img src="./assets/icons/icons8-book-50.png" alt="">
+          <img src="./assets/icons/icons8-book-50.png" alt="" />
           <span class="bookStoreName">DAhlia</span>
         </div>
         <div class="dropdown-filter-box">
-          <div onclick="showFilterMenu()" id="dropdownFilterButton" class="dropdown-filter-button">
-            <img src="./assets/icons/icons8-open-menu-24.png" alt=""><span>Filter nach Genre</span>
+          <div
+            onclick="showFilterMenu()"
+            id="dropdownFilterButton"
+            class="dropdown-filter-button"
+          >
+            <img src="./assets/icons/icons8-open-menu-24.png" alt="" /><span id="filterButtonText"
+              >Filter nach Genre</span
+            >
           </div>
           <ul id="filterMenuDropdown" class="dropdown-filter-list d-none">
-            <li>Alle Genres</li>
+            <li onclick="filterBooksToAllGenre()">Alle Genres</li>
           </ul>
         </div>
       </div>
     </header>
 
     <main>
-      <section class="book-section">
+      <section id="bookSection" class="book-section">
         <div id="bookWrapper" class="wrapper"></div>
       </section>
     </main>
 
     <footer>
-      <div class="wrapper"></div>
+      <div class="wrapper">This is an amazingly beautiful footer.</div>
     </footer>
   </body>
   <script src="./scripts/arrays.js"></script>

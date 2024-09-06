@@ -424,7 +424,7 @@ let books = [
     "liked": false,
     "price": 24.99,
     "publishedYear": 1869,
-    "genre": "Historischer Roman",
+    "genre": "Historischer-Roman",
     "comments": [
       {
         "name": "HistoryFan",
@@ -439,7 +439,7 @@ let books = [
     "liked": false,
     "price": 22.00,
     "publishedYear": 1967,
-    "genre": "Magischer Realismus",
+    "genre": "Magischer-Realismus",
     "comments": [
       {
         "name": "MagicRealismFan",
