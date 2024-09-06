@@ -15,7 +15,8 @@
 }
 
 main .wrapper {
-  width: 900px;
+  max-width: 900px;
+  width: 100%;
 }
 
 .d-none {
@@ -31,5 +32,5 @@ main .wrapper {
 }
 
 .transform-right {
-  transform: translateX(-7rem)!important;
+  transform: translateX(-50px)!important;
 }

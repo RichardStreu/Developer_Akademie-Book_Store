@@ -104,6 +104,8 @@ function addComment(index) {
 
   books[index].comments.unshift(newComment);
 
+  document.getElementById(`${"inputName" + index}`).value = "";
+  document.getElementById(`${"inputComment" + index}`).value = "";
   renderBookCommentsAfterNewComment(index);
   setDataToLocalStorage();
 }
@@ -227,6 +229,5 @@ window.onscroll = function () {
     toTheTopButtonRef.classList.add("transform-right");
   } else {
     toTheTopButtonRef.classList.remove("transform-right");
-   
   }
 };

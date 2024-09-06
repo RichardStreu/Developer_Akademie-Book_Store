@@ -35,13 +35,14 @@ header {
 
 .toTheTopButton {
   position: fixed;
-  top: 85vh;
-  right: -5rem;
-  transform: translateX(100%);
+  bottom: 50px;
+  right: 0;
+  transform: translateX(100px);
   border: none;
   background-color: transparent;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
+  z-index: 2000;
 }
 .toTheTopButton:hover {
   transform: scale(1.1);
@@ -49,6 +50,7 @@ header {
 }
 
 .dropdown-filter-box {
+  width: 240px;
   position: absolute;
   right: 3rem;
   top: 50%;
@@ -106,4 +108,64 @@ footer {
   height: 64px;
   background-color: blue;
   color: white;
+}
+
+
+@media  screen and (max-width: 600px) {
+  header {
+    align-items: flex-start;
+  }
+  .header-wrapper {
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+  .bookStoreName {
+    font-size: 2rem;
+  }
+  .bookstore-logo {
+    height: 2rem;
+  }
+  .dropdown-filter-box {
+    top: 55%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .toTheTopButton {
+    top: 32px;
+  }
+  .transform-right {
+    transform: translateX(-25px)!important;
+  }
+  .upButton {
+    width: 2rem;
+    height: 2rem;
+  }
+  .commentBoxUpperPart {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .commentInputArea {
+    width: 100%;
+  }
+  .commentBoxLowerPart {
+    padding: 0 0.5rem;
+  }
+  .bookBox {
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+    text-align: center;
+  }
+  .book-content {
+    padding-left: 0;
+  }
+  .bookImage {
+    height: 230px;
+  }
+  .bookImageBox {
+    margin-bottom: 0.25rem;
+  }
+  .bookPrice {
+    margin-bottom: 0.5rem;
+  }
 }
