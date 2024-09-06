@@ -2,6 +2,8 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
 }
 
 header {
@@ -29,6 +31,21 @@ header {
 .bookStoreName {
   font-size: 3rem;
   margin-left: 1rem;
+}
+
+.toTheTopButton {
+  position: fixed;
+  top: 85vh;
+  right: -5rem;
+  transform: translateX(100%);
+  border: none;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.toTheTopButton:hover {
+  transform: scale(1.1);
+
 }
 
 .dropdown-filter-box {
@@ -83,7 +100,7 @@ header {
 }
 main {
   flex: 1;
-  margin-top: 112px;
+  padding-top: 112px;
 }
 footer {
   height: 64px;

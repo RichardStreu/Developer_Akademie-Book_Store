@@ -217,3 +217,16 @@ function filterBooksToAllGenre() {
   unshowFilterMenu();
   document.getElementById("filterButtonText").innerText = "Filter nach Genre";
 }
+
+// function to show toUpButton
+
+window.onscroll = function () {
+  let toTheTopButtonRef = document.getElementById("toTheTopButton");
+  let scrollPosition = window.scrollY;
+  if (scrollPosition >= 360) {
+    toTheTopButtonRef.classList.add("transform-right");
+  } else {
+    toTheTopButtonRef.classList.remove("transform-right");
+   
+  }
+};

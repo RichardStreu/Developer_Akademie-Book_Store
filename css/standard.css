@@ -29,3 +29,7 @@ main .wrapper {
 .commentBackColorGray {
   background-color: rgb(236, 236, 236);
 }
+
+.transform-right {
+  transform: translateX(-7rem)!important;
+}
